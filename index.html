@@ -5,15 +5,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   </head>
   <body ng-controller="myController">
-  <h1>Projects:</h1>
-  <h2>Working on understanding how to use Angular.js and/or Jekyll on this page.</h2>
-  The answer to the ultimate question using Angular.js: {{ six * seven  }}
-  <script>
-    var app = angular.module('myApp', []);
-    app.controller('myController', function($scope) {
-      $scope.six = 6;
-      $scope.seven = 7;
-    });
-  </script>
+    <div class="page">
+      <header>
+        Projects
+      </header>
+      <aside>
+        <h1><u>Navigation</u></h1>
+        <a href="#">Page 1</a>
+        <a href="#">Page 2</a>
+        <a href="#">Page 3</a>
+      </aside>
+      <main>
+        <h2>I am working on understanding how to use Angular.js and CSS on this page.</h2>
+        The answer to the ultimate question using Angular.js: {{ six * seven  }}</br></br>
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+          $scope.six = 6;
+          $scope.seven = 7;
+        });
+        </script>
+        <footer>
+          Mark Long
+        </footer>
+      </main>
+    </div>
   </body>
 </html>
