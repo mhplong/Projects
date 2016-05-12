@@ -11,10 +11,84 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    @IBOutlet var timeLabel : UILabel!
+    @IBOutlet var momentTimeLabel : UILabel!
+    
+    var timer = NSTimer()
+    var lastStart = NSTimeInterval()
+    var lastMoment = NSTimeInterval()
+    var inSession = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        testDatabase()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func start(sender: UIButton) {
+        if !inSession {
+            beginSession()
+            startTimer()
+        }
+    }
+    
+    @IBAction func newMoment(sender: UIButton) {
+        if inSession {
+            stopTimer()
+            endLastMoment()
+            beginNewMoment()
+            startTimer()
+        }
+    }
+    
+    @IBAction func stop(sender: UIButton) {
+        stopTimer()
+        endSession()
+    }
+    
+    func update() {
+        timeLabel.text = elapsedTime(fromInterval: lastStart)
+        momentTimeLabel.text = elapsedTime(fromInterval: lastMoment)
+    }
+    
+    func elapsedTime(fromInterval interval : NSTimeInterval) -> String {
+        let elapsedFormatter = NSDateFormatter()
+        elapsedFormatter.dateFormat = "HH:mm:ss.S"
+        elapsedFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        
+        let elapsedTime = NSDate.timeIntervalSinceReferenceDate() - interval
+        let intervalDate = NSDate(timeIntervalSinceReferenceDate: elapsedTime)
+        
+        return elapsedFormatter.stringFromDate(intervalDate)
+    }
+    
+    func startTimer() {
+        if !timer.valid {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+    }
+    
+    func beginSession() {
+        inSession = true
+        lastStart = NSDate.timeIntervalSinceReferenceDate()
+        lastMoment = NSDate.timeIntervalSinceReferenceDate()
+    }
+    
+    func endSession() {
+        timeLabel.text = "00:00:00.0"
+        momentTimeLabel.text = "00:00:00.0"
+        inSession = false
+    }
+    
+    func endLastMoment() {
+        lastMoment = NSDate.timeIntervalSinceReferenceDate()
+    }
+    
+    func beginNewMoment() {
+        
     }
     
     func testDatabase() {
