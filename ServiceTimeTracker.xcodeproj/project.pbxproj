@@ -15,6 +15,7 @@
 		A17037AF1CE428340079EB08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17037AD1CE428340079EB08 /* LaunchScreen.storyboard */; };
 		A17037BB1CE42B3D0079EB08 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B71CE42B3D0079EB08 /* Session.swift */; };
 		A17037BD1CE42B3D0079EB08 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B91CE42B3D0079EB08 /* Moment.swift */; };
+		A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B25471CE5853300F08FC0 /* MomentTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A17037B01CE428340079EB08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A17037B71CE42B3D0079EB08 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = ../Session.swift; sourceTree = "<group>"; };
 		A17037B91CE42B3D0079EB08 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ../Moment.swift; sourceTree = "<group>"; };
+		A19B25471CE5853300F08FC0 /* MomentTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentTableView.swift; path = ../MomentTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A17037BE1CE42B740079EB08 /* Model */,
 				A17037A11CE428340079EB08 /* AppDelegate.swift */,
 				A17037A31CE428340079EB08 /* ViewController.swift */,
+				A19B25471CE5853300F08FC0 /* MomentTableView.swift */,
 				A17037A51CE428340079EB08 /* Main.storyboard */,
 				A17037AB1CE428340079EB08 /* Assets.xcassets */,
 				A17037AD1CE428340079EB08 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 				A17037BB1CE42B3D0079EB08 /* Session.swift in Sources */,
 				A17037BD1CE42B3D0079EB08 /* Moment.swift in Sources */,
 				A17037A41CE428340079EB08 /* ViewController.swift in Sources */,
+				A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */,
 				A17037A21CE428340079EB08 /* AppDelegate.swift in Sources */,
 				A17037AA1CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld in Sources */,
 			);
@@ -308,6 +312,7 @@
 				A17037B51CE428340079EB08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
