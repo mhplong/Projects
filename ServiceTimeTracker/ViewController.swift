@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var timeLabel : UILabel!
     @IBOutlet var momentTimeLabel : UILabel!
@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -112,6 +113,56 @@ class ViewController: UIViewController {
                 session1.date = NSDate(timeIntervalSinceReferenceDate: lastStart)
             }
         }
+    }
+    
+    //MARK: momentTableView Methods
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(12.0)
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.font = UIFont.systemFontOfSize(12)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let dbContext = getDatabaseContext() {
+            do {
+                let sessionFetch = NSFetchRequest(entityName: "Session")
+                let sortDescripter = NSSortDescriptor(key: "id", ascending: false)
+                sessionFetch.sortDescriptors = [sortDescripter]
+                
+                if let modelSessions = try dbContext.executeFetchRequest(sessionFetch) as? [Session] {
+                    if var momentsArray = modelSessions[indexPath.section].moments?.array as? [Moment] {
+                        momentsArray = momentsArray.reverse()
+                        let moment = momentsArray[indexPath.row]
+                        askForMomentName("initial", moment: moment)
+                    }
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func askForMomentName(defaultName: String, moment: Moment) {
+        
+        let alert = UIAlertController(title: "Moment", message: "Enter Name", preferredStyle: .Alert)
+        let changeNameAction = UIAlertAction(title: "Ok", style: .Destructive) {
+            action in
+            moment.name = alert.textFields!.first!.text!
+            self.momentTable.reloadData()
+        }
+        
+        alert.addAction(changeNameAction)
+        alert.addTextFieldWithConfigurationHandler() {
+            textField in
+            textField.text = self.sessionId
+        }
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     //MARK: -- change Session Name

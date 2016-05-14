@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+class MomentTableView: UITableView, UITableViewDataSource {
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -58,6 +58,8 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //MARK dataSource Methods
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return modelSessions.count
     }
@@ -73,6 +75,9 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("momentCell", forIndexPath: indexPath)
+        cell.textLabel?.font = UIFont.systemFontOfSize(10)
+        cell.detailTextLabel?.font = UIFont.systemFontOfSize(10)
+        
         let session = modelSessions[indexPath.section]
         if var moments = session.moments?.array as? [Moment] {
             moments = moments.reverse()
@@ -80,7 +85,7 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
                 let moment = moments[indexPath.row]
                 let startElapsedDate = dateToElapsedDate(session.date!, end: moment.start_time!)
                 let elapsedDate = dateToElapsedDate(moment.start_time!, end: moment.end_time!)
-                cell.textLabel!.text = elapsedDateToString(startElapsedDate)
+                cell.textLabel!.text = elapsedDateToString(startElapsedDate) + "-\(moment.name!)"
                 cell.detailTextLabel!.text = elapsedDateToString(elapsedDate)
             }
         }
