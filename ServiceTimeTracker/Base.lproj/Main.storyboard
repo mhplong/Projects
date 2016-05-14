@@ -69,7 +69,7 @@
                                             <constraint firstAttribute="height" constant="41" id="0XF-i4-nTT"/>
                                             <constraint firstAttribute="width" constant="309" id="Mj0-74-Tcm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -90,7 +90,7 @@
                                             <constraint firstAttribute="height" constant="28" id="WkP-GF-OFu"/>
                                             <constraint firstAttribute="width" constant="248" id="vs3-lc-Uf5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

@@ -64,7 +64,7 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let session = modelSessions[section]
-        return "\(session.name!) -- \(elapsedDateToString(session.getTotalElapsedTime()))"
+        return "\(session.name ?? "nil") -- \(elapsedDateToString(session.getTotalElapsedTime()))"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

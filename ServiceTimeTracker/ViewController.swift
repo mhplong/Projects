@@ -71,13 +71,13 @@ class ViewController: UIViewController {
         inSession = true
         lastStart = NSDate.timeIntervalSinceReferenceDate()
         lastMoment = NSDate.timeIntervalSinceReferenceDate()
-        databaseBeginSession()
+        self.databaseBeginSession()
     }
     
     func endSession() {
         inSession = false
-        //databaseDeleteSession()
-        saveDatabase()
+        //databaseDeleteSessions()
+        //saveDatabase()
     }
     
     func endLastMoment() {
@@ -97,6 +97,7 @@ class ViewController: UIViewController {
                 let results = try dbContext.executeFetchRequest(sessionFetch)
                 sessionNumber = results.count
                 sessionId = "Session \(sessionNumber)"
+                askForSessionName()
             } catch {
                 print("Error accessing database: \(error)")
             }
@@ -108,17 +109,33 @@ class ViewController: UIViewController {
             if let session1 = Session(insertIntoManagedObjectContext: dbContext) {
                 setSessionId()
                 session1.id = NSNumber(integer: sessionNumber)
-                session1.name = sessionId
                 session1.date = NSDate(timeIntervalSinceReferenceDate: lastStart)
             }
         }
     }
     
-    func databaseDeleteSession() {
+    //MARK: -- change Session Name
+    
+    func askForSessionName() {
+        let alert = UIAlertController(title: "Session", message: "Enter Name", preferredStyle: .Alert)
+        let changeNameAction = UIAlertAction(title: "Ok", style: .Destructive) {
+            action in
+            self.sessionId = alert.textFields!.first!.text!
+        }
+        
+        alert.addAction(changeNameAction)
+        alert.addTextFieldWithConfigurationHandler() {
+            textField in
+            textField.text = self.sessionId
+        }
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func databaseDeleteSessions() {
         if let dbContext = getDatabaseContext() {
             do {
                 let sessionFetch = NSFetchRequest(entityName: "Session")
-                sessionFetch.predicate = NSPredicate(format: "id == %i", sessionNumber)
                 
                 let results = try dbContext.executeFetchRequest(sessionFetch)
                 for result in results {
@@ -148,6 +165,7 @@ class ViewController: UIViewController {
                 let results = try dbContext.executeFetchRequest(sessionFetch)
                 
                 if let session = results.first as? Session {
+                    session.name = sessionId
                     
                     if let ment = Moment(insertIntoManagedObjectContext: dbContext) {
                         ment.name = "initial"
