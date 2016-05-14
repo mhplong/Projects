@@ -47,6 +47,8 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         do {
             if let dbContext = getDatabaseContext() {
                 let sessionFetch = NSFetchRequest(entityName: "Session")
+                let sortDescripter = NSSortDescriptor(key: "date", ascending: false)
+                sessionFetch.sortDescriptors = [sortDescripter]
                 if let results = try dbContext.executeFetchRequest(sessionFetch) as? [Session] {
                     modelSessions = results
                 }
@@ -71,12 +73,14 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("momentCell", forIndexPath: indexPath)
-        if let moments = modelSessions[indexPath.section].moments?.array as? [Moment] {
+        let session = modelSessions[indexPath.section]
+        if let moments = session.moments?.array as? [Moment] {
             if moments.count > indexPath.row {
                 let moment = moments[indexPath.row]
+                let startElapsedDate = dateToElapsedDate(session.date!, end: moment.start_time!)
                 let elapsedDate = dateToElapsedDate(moment.start_time!, end: moment.end_time!)
-                cell.textLabel!.text = moment.name!
-                cell.detailTextLabel!.text = "\(dateToString(elapsedDate, elapsed: true))"
+                cell.textLabel!.text = elapsedDateToString(startElapsedDate)
+                cell.detailTextLabel!.text = elapsedDateToString(elapsedDate)
             }
         }
         return cell

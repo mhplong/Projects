@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var lastStart = NSTimeInterval()
     var lastMoment = NSTimeInterval()
     var inSession = false
+    var sessionId = "Session 0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,10 +88,24 @@ class ViewController: UIViewController {
         lastMoment = NSDate.timeIntervalSinceReferenceDate()
     }
     
+    func setSessionId() {
+        if let dbContext = getDatabaseContext() {
+            do {
+                let sessionFetch = NSFetchRequest(entityName: "Session")
+                
+                let results = try dbContext.executeFetchRequest(sessionFetch)
+                sessionId = "Session \(results.count)"
+            } catch {
+                print("Error accessing database: \(error)")
+            }
+        }
+    }
+    
     func databaseBeginSession() {
         if let dbContext = getDatabaseContext() {
             if let session1 = Session(insertIntoManagedObjectContext: dbContext) {
-                session1.name = "Test Session"
+                setSessionId()
+                session1.name = sessionId
                 session1.date = NSDate(timeIntervalSinceReferenceDate: lastStart)
             }
         }
@@ -100,7 +115,7 @@ class ViewController: UIViewController {
         if let dbContext = getDatabaseContext() {
             do {
                 let sessionFetch = NSFetchRequest(entityName: "Session")
-                sessionFetch.predicate = NSPredicate(format: "name == %@", "Test Session")
+                sessionFetch.predicate = NSPredicate(format: "name == %@", sessionId)
                 
                 let results = try dbContext.executeFetchRequest(sessionFetch)
                 for result in results {
@@ -125,7 +140,7 @@ class ViewController: UIViewController {
             
             do {
                 let sessionFetch = NSFetchRequest(entityName: "Session")
-                sessionFetch.predicate = NSPredicate(format: "name == %@", "Test Session")
+                sessionFetch.predicate = NSPredicate(format: "name == %@", sessionId)
                 
                 let results = try dbContext.executeFetchRequest(sessionFetch)
                 
