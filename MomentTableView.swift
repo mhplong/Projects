@@ -47,7 +47,7 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         do {
             if let dbContext = getDatabaseContext() {
                 let sessionFetch = NSFetchRequest(entityName: "Session")
-                let sortDescripter = NSSortDescriptor(key: "date", ascending: false)
+                let sortDescripter = NSSortDescriptor(key: "id", ascending: false)
                 sessionFetch.sortDescriptors = [sortDescripter]
                 if let results = try dbContext.executeFetchRequest(sessionFetch) as? [Session] {
                     modelSessions = results

@@ -11,7 +11,8 @@ import CoreData
 
 
 class Session: NSManagedObject {
-
+    
+    @NSManaged var id: NSNumber?
     @NSManaged var name: String?
     @NSManaged var date: NSDate?
     @NSManaged var moments: NSOrderedSet?

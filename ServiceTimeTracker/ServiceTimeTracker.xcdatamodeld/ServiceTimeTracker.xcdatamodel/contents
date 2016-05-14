@@ -8,11 +8,12 @@
     </entity>
     <entity name="Session" representedClassName=".Session" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="moments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Moment" inverseName="session" inverseEntity="Moment" syncable="YES"/>
     </entity>
     <elements>
         <element name="Moment" positionX="-54" positionY="9" width="128" height="103"/>
-        <element name="Session" positionX="234" positionY="-7" width="128" height="90"/>
+        <element name="Session" positionX="234" positionY="-7" width="128" height="105"/>
     </elements>
 </model>
