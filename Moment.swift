@@ -17,7 +17,10 @@ class Moment: NSManagedObject {
     @NSManaged var start_time: NSDate?
 
 // Insert code here to add functionality to your managed object subclass
-
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
     init?(insertIntoManagedObjectContext context: NSManagedObjectContext) {
         if let desc = NSEntityDescription.entityForName("Moment", inManagedObjectContext: context) {
             super.init(entity: desc, insertIntoManagedObjectContext: context)

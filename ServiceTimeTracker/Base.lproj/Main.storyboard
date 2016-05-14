@@ -134,6 +134,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="momentTable" destination="3p6-Dz-Oz3" id="2pA-uE-i4Q"/>
                         <outlet property="momentTimeLabel" destination="v17-gh-CVx" id="VRv-sd-DWW"/>
                         <outlet property="timeLabel" destination="Tlt-Hj-n4u" id="9hX-zW-Ce9"/>
                     </connections>

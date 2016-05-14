@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var timeLabel : UILabel!
     @IBOutlet var momentTimeLabel : UILabel!
+    @IBOutlet var momentTable : MomentTableView!
     
     var timer = NSTimer()
     var lastStart = NSTimeInterval()
@@ -41,24 +42,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stop(sender: UIButton) {
-        stopTimer()
-        endSession()
+        if inSession {
+            stopTimer()
+            beginNewMoment()
+            momentTable.reloadData()
+            endSession()
+        }
     }
     
     func update() {
         timeLabel.text = elapsedTime(fromInterval: lastStart)
         momentTimeLabel.text = elapsedTime(fromInterval: lastMoment)
-    }
-    
-    func elapsedTime(fromInterval interval : NSTimeInterval) -> String {
-        let elapsedFormatter = NSDateFormatter()
-        elapsedFormatter.dateFormat = "HH:mm:ss.S"
-        elapsedFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        
-        let elapsedTime = NSDate.timeIntervalSinceReferenceDate() - interval
-        let intervalDate = NSDate(timeIntervalSinceReferenceDate: elapsedTime)
-        
-        return elapsedFormatter.stringFromDate(intervalDate)
     }
     
     func startTimer() {
@@ -75,76 +69,98 @@ class ViewController: UIViewController {
         inSession = true
         lastStart = NSDate.timeIntervalSinceReferenceDate()
         lastMoment = NSDate.timeIntervalSinceReferenceDate()
+        databaseBeginSession()
     }
     
     func endSession() {
-        timeLabel.text = "00:00:00.0"
-        momentTimeLabel.text = "00:00:00.0"
         inSession = false
+        //databaseDeleteSession()
+        saveDatabase()
     }
     
     func endLastMoment() {
-        lastMoment = NSDate.timeIntervalSinceReferenceDate()
     }
     
     func beginNewMoment() {
-        
+        testDatabase()
+        momentTable.reloadData()
+        lastMoment = NSDate.timeIntervalSinceReferenceDate()
     }
     
-    func testDatabase() {
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            let dbContext = delegate.managedObjectContext
-            
-            if let e1 = Session(insertIntoManagedObjectContext: dbContext) {
-                e1.name = "Test Session"
-                e1.date = NSDate()
-                
-                var moments = [Moment]()
-                
-                if let start = Moment(insertIntoManagedObjectContext: dbContext) {
-                    start.name = "start"
-                    start.start_time = NSDate()
-                    sleep(1)
-                    start.end_time = NSDate()
-                    moments.append(start)
-                }
-                
-                sleep(2)
-                
-                if let finish = Moment(insertIntoManagedObjectContext: dbContext) {
-                    finish.name = "finish"
-                    finish.start_time = NSDate()
-                    sleep(6)
-                    finish.end_time = NSDate()
-                    moments.append(finish)
-                }
-                
-                e1.moments = NSOrderedSet(array: moments)
-                
-                print("\(e1.name!): \(dateToString(e1.date!))")
-                for elem in e1.moments! {
-                    let ment = elem as! Moment
-                    let start = dateToString(ment.start_time!)
-                    let end = dateToString(ment.end_time!)
-                    let interval = ment.end_time?.timeIntervalSinceDate(ment.start_time!)
-                    let elapsed = dateToString(NSDate(timeIntervalSinceReferenceDate: interval!), elapsed: true)
-                    print("\(ment.name!): \(start) to \(end) Elapsed:\(elapsed)")
-                }
+    func databaseBeginSession() {
+        if let dbContext = getDatabaseContext() {
+            if let session1 = Session(insertIntoManagedObjectContext: dbContext) {
+                session1.name = "Test Session"
+                session1.date = NSDate(timeIntervalSinceReferenceDate: lastStart)
             }
         }
     }
     
-    func dateToString(date: NSDate, elapsed: Bool = false) -> String {
-        let dateFormatter = NSDateFormatter()
-        if elapsed {
-            dateFormatter.dateFormat = "HH:mm:ss"
-            dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        } else {
-            dateFormatter.dateFormat = "hh:mm:ss"
-            dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    func databaseDeleteSession() {
+        if let dbContext = getDatabaseContext() {
+            do {
+                let sessionFetch = NSFetchRequest(entityName: "Session")
+                sessionFetch.predicate = NSPredicate(format: "name == %@", "Test Session")
+                
+                let results = try dbContext.executeFetchRequest(sessionFetch)
+                for result in results {
+                    dbContext.deleteObject(result as! NSManagedObject)
+                }
+            } catch {
+                print("Error: \(error)")
+            }
         }
-        
-        return dateFormatter.stringFromDate(date)
+    }
+    
+    func getDatabaseContext() -> NSManagedObjectContext? {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            return delegate.managedObjectContext
+        } else {
+            return nil
+        }
+    }
+    
+    func testDatabase() {
+        if let dbContext = getDatabaseContext() {
+            
+            do {
+                let sessionFetch = NSFetchRequest(entityName: "Session")
+                sessionFetch.predicate = NSPredicate(format: "name == %@", "Test Session")
+                
+                let results = try dbContext.executeFetchRequest(sessionFetch)
+                
+                if let session = results.first as? Session {
+                    
+                    if let ment = Moment(insertIntoManagedObjectContext: dbContext) {
+                        ment.name = "initial"
+                        ment.start_time = NSDate(timeIntervalSinceReferenceDate: lastMoment)
+                        ment.end_time = NSDate()
+                        session.addMoment(ment)
+                    }
+                    
+                    let lastMent = session.moments?.lastObject as! Moment
+                    let lastInterval = lastMent.end_time!.timeIntervalSinceDate(session.date!)
+                    let elapsedDate = NSDate(timeIntervalSinceReferenceDate: lastInterval)
+                    print("\(session.name!): \(dateToString(elapsedDate, elapsed: true))")
+                    
+                    for elem in session.moments! {
+                        let ment = elem as! Moment
+                        let start = ment.start_time!
+                        let end = ment.end_time!
+                        let elapsed = dateToString(dateToElapsedDate(start, end: end), elapsed: true)
+                        print("\(ment.name!): \(dateToString(start)) to \(dateToString(end)) Elapsed:\(elapsed)")
+                    }
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func saveDatabase() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.saveContext()
+        }
     }
 
     override func didReceiveMemoryWarning() {

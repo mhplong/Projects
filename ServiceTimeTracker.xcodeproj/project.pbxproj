@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A12410511CE6A68500AD9EBD /* DateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12410501CE6A68500AD9EBD /* DateFunctions.swift */; };
 		A17037A21CE428340079EB08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037A11CE428340079EB08 /* AppDelegate.swift */; };
 		A17037A41CE428340079EB08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037A31CE428340079EB08 /* ViewController.swift */; };
 		A17037A71CE428340079EB08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17037A51CE428340079EB08 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A12410501CE6A68500AD9EBD /* DateFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
 		A170379E1CE428340079EB08 /* ServiceTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17037A11CE428340079EB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17037A31CE428340079EB08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				A17037BE1CE42B740079EB08 /* Model */,
 				A17037A11CE428340079EB08 /* AppDelegate.swift */,
+				A12410501CE6A68500AD9EBD /* DateFunctions.swift */,
 				A17037A31CE428340079EB08 /* ViewController.swift */,
 				A19B25471CE5853300F08FC0 /* MomentTableView.swift */,
 				A17037A51CE428340079EB08 /* Main.storyboard */,
@@ -160,6 +163,7 @@
 				A17037A41CE428340079EB08 /* ViewController.swift in Sources */,
 				A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */,
 				A17037A21CE428340079EB08 /* AppDelegate.swift in Sources */,
+				A12410511CE6A68500AD9EBD /* DateFunctions.swift in Sources */,
 				A17037AA1CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
