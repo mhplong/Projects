@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     func endSession() {
         inSession = false
         //databaseDeleteSessions()
-        //saveDatabase()
+        saveDatabase()
     }
     
     func endLastMoment() {

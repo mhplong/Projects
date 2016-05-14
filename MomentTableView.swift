@@ -74,7 +74,8 @@ class MomentTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("momentCell", forIndexPath: indexPath)
         let session = modelSessions[indexPath.section]
-        if let moments = session.moments?.array as? [Moment] {
+        if var moments = session.moments?.array as? [Moment] {
+            moments = moments.reverse()
             if moments.count > indexPath.row {
                 let moment = moments[indexPath.row]
                 let startElapsedDate = dateToElapsedDate(session.date!, end: moment.start_time!)
