@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewControllerDelegate {
 
+    //MARK: Variables
+    
     @IBOutlet var timeLabel : UILabel!
     @IBOutlet var momentTimeLabel : UILabel!
     @IBOutlet var momentTable : MomentTableView!
@@ -22,11 +25,15 @@ class ViewController: UIViewController, UITableViewDelegate {
     var sessionId = "Session 1"
     var sessionNumber = 1
     
+    //MARK: Class Overrides
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    //MARK: IBActions
     
     @IBAction func start(sender: UIButton) {
         if !inSession {
@@ -38,7 +45,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBAction func newMoment(sender: UIButton) {
         if inSession {
             stopTimer()
-            endLastMoment()
             beginNewMoment()
             startTimer()
         }
@@ -52,6 +58,44 @@ class ViewController: UIViewController, UITableViewDelegate {
             endSession()
         }
     }
+    
+    @IBAction func export(sender: UIButton) {
+        if let sessions = getSessions() {
+            var bodyMessage = ""
+            for session in sessions {
+                
+                let lastMent = session.moments?.lastObject as! Moment
+                let lastInterval = lastMent.end_time!.timeIntervalSinceDate(session.date!)
+                let elapsedDate = NSDate(timeIntervalSinceReferenceDate: lastInterval)
+                bodyMessage += "\n\(session.name!):\t\(dateToString(elapsedDate, elapsed: true))\n"
+                bodyMessage += "-----------------------------------------------------------------------\n"
+                bodyMessage += "Start\tEnd\tElapsed\tName\n"
+                bodyMessage += "-----------------------------------------------------------------------\n"
+                
+                for elem in session.moments! {
+                    let ment = elem as! Moment
+                    let start = ment.start_time!
+                    let end = ment.end_time!
+                    let startText = dateToString(dateToElapsedDate(session.date!, end: start), elapsed: true)
+                    let stopText = dateToString(dateToElapsedDate(session.date!, end: end), elapsed: true)
+                    let elapsed = dateToString(dateToElapsedDate(start, end: end), elapsed: true)
+                    bodyMessage += "\(startText)\t\(stopText)\t\(elapsed)\t\(ment.name!)\n"
+                }
+            }
+            
+            let mailCompose = MFMailComposeViewController()
+            mailCompose.setSubject("ServiceTimeTracker Report")
+            mailCompose.setMessageBody(bodyMessage, isHTML: false)
+            mailCompose.mailComposeDelegate = self
+            self.presentViewController(mailCompose, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK: NSTimer methods
     
     func update() {
         timeLabel.text = elapsedTime(fromInterval: lastStart)
@@ -68,6 +112,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         timer.invalidate()
     }
     
+    //MARK: Session/Moment Methds
+    
     func beginSession() {
         inSession = true
         lastStart = NSDate.timeIntervalSinceReferenceDate()
@@ -81,14 +127,79 @@ class ViewController: UIViewController, UITableViewDelegate {
         saveDatabase()
     }
     
-    func endLastMoment() {
-    }
-    
     func beginNewMoment() {
-        testDatabase()
+        insertMoment()
         momentTable.reloadData()
         lastMoment = NSDate.timeIntervalSinceReferenceDate()
     }
+    
+    //MARK: momentTableView Methods
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(12.0)
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.font = UIFont.systemFontOfSize(12)
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let dbContext = getDatabaseContext() {
+            do {
+                let sessionFetch = NSFetchRequest(entityName: "Session")
+                let sortDescripter = NSSortDescriptor(key: "id", ascending: false)
+                sessionFetch.sortDescriptors = [sortDescripter]
+                
+                if let modelSessions = try dbContext.executeFetchRequest(sessionFetch) as? [Session] {
+                    if var momentsArray = modelSessions[indexPath.section].moments?.array as? [Moment] {
+                        momentsArray = momentsArray.reverse()
+                        let moment = momentsArray[indexPath.row]
+                        askForMomentName(moment)
+                    }
+                }
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func askForMomentName(moment: Moment) {
+        
+        let alert = UIAlertController(title: "Moment", message: "Enter Name", preferredStyle: .Alert)
+        let changeNameAction = UIAlertAction(title: "Ok", style: .Destructive) {
+            action in
+            if alert.textFields!.first!.text! != "" {
+                moment.name = alert.textFields!.first!.text!
+                self.momentTable.reloadData()
+            }
+        }
+        
+        alert.addAction(changeNameAction)
+        alert.addTextFieldWithConfigurationHandler(nil)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: Change Session Name
+    
+    func askForSessionName() {
+        let alert = UIAlertController(title: "Session", message: "Enter Name", preferredStyle: .Alert)
+        let changeNameAction = UIAlertAction(title: "Ok", style: .Destructive) {
+            action in
+            if alert.textFields!.first!.text! != "" {
+                self.sessionId = alert.textFields!.first!.text!
+            }
+        }
+        
+        alert.addAction(changeNameAction)
+        alert.addTextFieldWithConfigurationHandler(nil)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: Database methods
     
     func setSessionId() {
         if let dbContext = getDatabaseContext() {
@@ -115,85 +226,12 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    //MARK: momentTableView Methods
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(12.0)
-    }
-    
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.font = UIFont.systemFontOfSize(12)
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let dbContext = getDatabaseContext() {
-            do {
-                let sessionFetch = NSFetchRequest(entityName: "Session")
-                let sortDescripter = NSSortDescriptor(key: "id", ascending: false)
-                sessionFetch.sortDescriptors = [sortDescripter]
-                
-                if let modelSessions = try dbContext.executeFetchRequest(sessionFetch) as? [Session] {
-                    if var momentsArray = modelSessions[indexPath.section].moments?.array as? [Moment] {
-                        momentsArray = momentsArray.reverse()
-                        let moment = momentsArray[indexPath.row]
-                        askForMomentName("initial", moment: moment)
-                    }
-                }
-            } catch {
-                print("Error: \(error)")
-            }
-        }
-    }
-    
-    func askForMomentName(defaultName: String, moment: Moment) {
-        
-        let alert = UIAlertController(title: "Moment", message: "Enter Name", preferredStyle: .Alert)
-        let changeNameAction = UIAlertAction(title: "Ok", style: .Destructive) {
-            action in
-            moment.name = alert.textFields!.first!.text!
-            self.momentTable.reloadData()
-        }
-        
-        alert.addAction(changeNameAction)
-        alert.addTextFieldWithConfigurationHandler() {
-            textField in
-            textField.text = self.sessionId
-        }
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    //MARK: -- change Session Name
-    
-    func askForSessionName() {
-        let alert = UIAlertController(title: "Session", message: "Enter Name", preferredStyle: .Alert)
-        let changeNameAction = UIAlertAction(title: "Ok", style: .Destructive) {
-            action in
-            self.sessionId = alert.textFields!.first!.text!
-        }
-        
-        alert.addAction(changeNameAction)
-        alert.addTextFieldWithConfigurationHandler() {
-            textField in
-            textField.text = self.sessionId
-        }
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
     func databaseDeleteSessions() {
         if let dbContext = getDatabaseContext() {
-            do {
-                let sessionFetch = NSFetchRequest(entityName: "Session")
-                
-                let results = try dbContext.executeFetchRequest(sessionFetch)
-                for result in results {
-                    dbContext.deleteObject(result as! NSManagedObject)
+            if let sessions = getSessions() {
+                for session in sessions {
+                    dbContext.deleteObject(session)
                 }
-            } catch {
-                print("Error: \(error)")
             }
         }
     }
@@ -206,42 +244,44 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    func testDatabase() {
+    func insertMoment() {
         if let dbContext = getDatabaseContext() {
             
+            let sessionFetch = NSFetchRequest(entityName: "Session")
+            sessionFetch.predicate = NSPredicate(format: "id == %i", sessionNumber)
+            
+            let results = getSessions(sessionFetch)
+            
+            if let session = results!.first {
+                session.name = sessionId
+                
+                if let ment = Moment(insertIntoManagedObjectContext: dbContext) {
+                    ment.name = "initial"
+                    ment.start_time = NSDate(timeIntervalSinceReferenceDate: lastMoment)
+                    ment.end_time = NSDate()
+                    session.addMoment(ment)
+                }
+            }
+        }
+    }
+    
+    func getSessions(fetchRequest: NSFetchRequest? = nil) -> [Session]? {
+        if let dbContext = getDatabaseContext() {
             do {
-                let sessionFetch = NSFetchRequest(entityName: "Session")
-                sessionFetch.predicate = NSPredicate(format: "id == %i", sessionNumber)
+                var request = fetchRequest
+                if request == nil {
+                    request = NSFetchRequest(entityName: "Session")
+                }
                 
-                let results = try dbContext.executeFetchRequest(sessionFetch)
-                
-                if let session = results.first as? Session {
-                    session.name = sessionId
-                    
-                    if let ment = Moment(insertIntoManagedObjectContext: dbContext) {
-                        ment.name = "initial"
-                        ment.start_time = NSDate(timeIntervalSinceReferenceDate: lastMoment)
-                        ment.end_time = NSDate()
-                        session.addMoment(ment)
-                    }
-                    
-                    let lastMent = session.moments?.lastObject as! Moment
-                    let lastInterval = lastMent.end_time!.timeIntervalSinceDate(session.date!)
-                    let elapsedDate = NSDate(timeIntervalSinceReferenceDate: lastInterval)
-                    print("\(session.name!): \(dateToString(elapsedDate, elapsed: true))")
-                    
-                    for elem in session.moments! {
-                        let ment = elem as! Moment
-                        let start = ment.start_time!
-                        let end = ment.end_time!
-                        let elapsed = dateToString(dateToElapsedDate(start, end: end), elapsed: true)
-                        print("\(ment.name!): \(dateToString(start)) to \(dateToString(end)) Elapsed:\(elapsed)")
-                    }
+                let results = try dbContext.executeFetchRequest(request!)
+                if let sessions = results as? [Session] {
+                    return sessions
                 }
             } catch {
                 print("Error: \(error)")
             }
         }
+        return nil
     }
     
     func saveDatabase() {

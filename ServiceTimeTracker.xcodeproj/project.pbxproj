@@ -17,6 +17,7 @@
 		A17037BB1CE42B3D0079EB08 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B71CE42B3D0079EB08 /* Session.swift */; };
 		A17037BD1CE42B3D0079EB08 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B91CE42B3D0079EB08 /* Moment.swift */; };
 		A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B25471CE5853300F08FC0 /* MomentTableView.swift */; };
+		A1CA011F1CE820E000B19DC0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CA011E1CE820E000B19DC0 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A17037B71CE42B3D0079EB08 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = ../Session.swift; sourceTree = "<group>"; };
 		A17037B91CE42B3D0079EB08 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ../Moment.swift; sourceTree = "<group>"; };
 		A19B25471CE5853300F08FC0 /* MomentTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentTableView.swift; path = ../MomentTableView.swift; sourceTree = "<group>"; };
+		A1CA011E1CE820E000B19DC0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CA011F1CE820E000B19DC0 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +51,7 @@
 		A17037951CE428340079EB08 = {
 			isa = PBXGroup;
 			children = (
+				A1CA011E1CE820E000B19DC0 /* MessageUI.framework */,
 				A17037A01CE428340079EB08 /* ServiceTimeTracker */,
 				A170379F1CE428340079EB08 /* Products */,
 			);
