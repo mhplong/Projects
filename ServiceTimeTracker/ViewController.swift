@@ -22,15 +22,39 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
     var lastStart = NSTimeInterval()
     var lastMoment = NSTimeInterval()
     var inSession = false
-    var sessionId = "Session 1"
     var sessionNumber = 1
+    var sessionNamePrefix = "Session"
+    var sessionId = "Session 1"
     
     //MARK: Class Overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupDefaults()
+        setupNotifications()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func setupDefaults() {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let resetDatabase = prefs.boolForKey("reset_data_pref")
+        let namePrefix = prefs.stringForKey("session_name_prefix_pref")
+        if resetDatabase {
+            databaseDeleteSessions()
+            prefs.setBool(false, forKey: "reset_data_pref")
+        }
+        if namePrefix != nil {
+            sessionNamePrefix = namePrefix!
+        }
+    }
+    
+    func setupNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveState), name: UIApplicationDidEnterBackgroundNotification, object: nil)
+    }
+    
+    func saveState() {
+        saveDatabase()
     }
     
     //MARK: IBActions
@@ -123,7 +147,6 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
     
     func endSession() {
         inSession = false
-        //databaseDeleteSessions()
         saveDatabase()
     }
     
@@ -208,8 +231,7 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
                 
                 let results = try dbContext.executeFetchRequest(sessionFetch)
                 sessionNumber = results.count
-                sessionId = "Session \(sessionNumber)"
-                askForSessionName()
+                sessionId = "\(sessionNamePrefix) \(sessionNumber)"
             } catch {
                 print("Error accessing database: \(error)")
             }
@@ -220,6 +242,7 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
         if let dbContext = getDatabaseContext() {
             if let session1 = Session(insertIntoManagedObjectContext: dbContext) {
                 setSessionId()
+                askForSessionName()
                 session1.id = NSNumber(integer: sessionNumber)
                 session1.date = NSDate(timeIntervalSinceReferenceDate: lastStart)
             }

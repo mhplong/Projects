@@ -18,6 +18,7 @@
 		A17037BD1CE42B3D0079EB08 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B91CE42B3D0079EB08 /* Moment.swift */; };
 		A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B25471CE5853300F08FC0 /* MomentTableView.swift */; };
 		A1CA011F1CE820E000B19DC0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CA011E1CE820E000B19DC0 /* MessageUI.framework */; };
+		A1D73EA21CEC07B00065C337 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A1D73EA11CEC07B00065C337 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A17037B91CE42B3D0079EB08 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ../Moment.swift; sourceTree = "<group>"; };
 		A19B25471CE5853300F08FC0 /* MomentTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentTableView.swift; path = ../MomentTableView.swift; sourceTree = "<group>"; };
 		A1CA011E1CE820E000B19DC0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A1D73EA11CEC07B00065C337 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		A17037A01CE428340079EB08 /* ServiceTimeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A1D73EA11CEC07B00065C337 /* Settings.bundle */,
 				A17037BE1CE42B740079EB08 /* Model */,
 				A17037A11CE428340079EB08 /* AppDelegate.swift */,
 				A12410501CE6A68500AD9EBD /* DateFunctions.swift */,
@@ -149,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D73EA21CEC07B00065C337 /* Settings.bundle in Resources */,
 				A17037AF1CE428340079EB08 /* LaunchScreen.storyboard in Resources */,
 				A17037AC1CE428340079EB08 /* Assets.xcassets in Resources */,
 				A17037A71CE428340079EB08 /* Main.storyboard in Resources */,
