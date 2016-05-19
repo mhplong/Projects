@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
         let namePrefix = prefs.stringForKey("session_name_prefix_pref")
         if resetDatabase {
             databaseDeleteSessions()
+            saveDatabase()
             prefs.setBool(false, forKey: "reset_data_pref")
         }
         if namePrefix != nil {
