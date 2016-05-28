@@ -31,12 +31,12 @@ func dateToElapsedDate(start: NSDate, end: NSDate) -> NSDate {
     return NSDate(timeIntervalSinceReferenceDate: interval)
 }
 
-func elapsedTime(fromInterval interval : NSTimeInterval) -> String {
+func elapsedTime(fromInterval interval : NSTimeInterval, toInterval now: NSTimeInterval) -> String {
     let elapsedFormatter = NSDateFormatter()
     elapsedFormatter.dateFormat = "HH:mm:ss.S"
     elapsedFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
     
-    let elapsedTime = NSDate.timeIntervalSinceReferenceDate() - interval
+    let elapsedTime = now - interval
     let intervalDate = NSDate(timeIntervalSinceReferenceDate: elapsedTime)
     
     return elapsedFormatter.stringFromDate(intervalDate)

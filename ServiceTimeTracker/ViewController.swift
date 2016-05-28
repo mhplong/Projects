@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadState()
         setupDefaults()
         setupNotifications()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,7 +56,23 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
     }
     
     func saveState() {
+        if inSession {
+            let prefs = NSUserDefaults.standardUserDefaults()
+            prefs.setObject(lastStart, forKey: "saved_start")
+            prefs.setBool(true, forKey: "inSession")
+            prefs.setObject(sessionId, forKey: "session_id")
+        }
         saveDatabase()
+    }
+    
+    func loadState() {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        lastStart = prefs.objectForKey("saved_start") as? NSTimeInterval ?? lastStart
+        inSession = prefs.boolForKey("inSession")
+        if inSession {
+            sessionId = prefs.objectForKey("session_id") as? String ?? "Session 1"
+            startTimer()
+        }
     }
     
     //MARK: IBActions
@@ -123,8 +140,9 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
     //MARK: NSTimer methods
     
     func update() {
-        timeLabel.text = elapsedTime(fromInterval: lastStart)
-        momentTimeLabel.text = elapsedTime(fromInterval: lastMoment)
+        let offsetNow = NSDate().timeIntervalSinceReferenceDate
+        timeLabel.text = elapsedTime(fromInterval: lastStart, toInterval: offsetNow)
+        momentTimeLabel.text = elapsedTime(fromInterval: lastMoment, toInterval: offsetNow)
     }
     
     func startTimer() {
