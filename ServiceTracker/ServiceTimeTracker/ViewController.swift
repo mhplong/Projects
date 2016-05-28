@@ -31,9 +31,9 @@ class ViewController: UIViewController, UITableViewDelegate, MFMailComposeViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadState()
+        //loadState()
         setupDefaults()
-        setupNotifications()
+        //setupNotifications()
         // Do any additional setup after loading the view, typically from a nib.
     }
     

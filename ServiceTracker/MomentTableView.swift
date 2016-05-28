@@ -70,7 +70,11 @@ class MomentTableView: UITableView, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelSessions[section].moments!.count
+        if let moments = modelSessions[section].moments {
+            return moments.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
