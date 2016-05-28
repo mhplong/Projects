@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A12410511CE6A68500AD9EBD /* DateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12410501CE6A68500AD9EBD /* DateFunctions.swift */; };
+		A17037A21CE428340079EB08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037A11CE428340079EB08 /* AppDelegate.swift */; };
+		A17037A41CE428340079EB08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037A31CE428340079EB08 /* ViewController.swift */; };
+		A17037A71CE428340079EB08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17037A51CE428340079EB08 /* Main.storyboard */; };
+		A17037AA1CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A17037A81CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld */; };
+		A17037AC1CE428340079EB08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17037AB1CE428340079EB08 /* Assets.xcassets */; };
+		A17037AF1CE428340079EB08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17037AD1CE428340079EB08 /* LaunchScreen.storyboard */; };
+		A17037BB1CE42B3D0079EB08 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B71CE42B3D0079EB08 /* Session.swift */; };
+		A17037BD1CE42B3D0079EB08 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17037B91CE42B3D0079EB08 /* Moment.swift */; };
+		A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B25471CE5853300F08FC0 /* MomentTableView.swift */; };
+		A1CA011F1CE820E000B19DC0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CA011E1CE820E000B19DC0 /* MessageUI.framework */; };
+		A1D73EA21CEC07B00065C337 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A1D73EA11CEC07B00065C337 /* Settings.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A12410501CE6A68500AD9EBD /* DateFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
+		A170379E1CE428340079EB08 /* ServiceTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17037A11CE428340079EB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A17037A31CE428340079EB08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A17037A61CE428340079EB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A17037A91CE428340079EB08 /* ServiceTimeTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ServiceTimeTracker.xcdatamodel; sourceTree = "<group>"; };
+		A17037AB1CE428340079EB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A17037AE1CE428340079EB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A17037B01CE428340079EB08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A17037B71CE42B3D0079EB08 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = ../Session.swift; sourceTree = "<group>"; };
+		A17037B91CE42B3D0079EB08 /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Moment.swift; path = ../Moment.swift; sourceTree = "<group>"; };
+		A19B25471CE5853300F08FC0 /* MomentTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentTableView.swift; path = ../MomentTableView.swift; sourceTree = "<group>"; };
+		A1CA011E1CE820E000B19DC0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A1D73EA11CEC07B00065C337 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A170379B1CE428340079EB08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1CA011F1CE820E000B19DC0 /* MessageUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A17037951CE428340079EB08 = {
+			isa = PBXGroup;
+			children = (
+				A1CA011E1CE820E000B19DC0 /* MessageUI.framework */,
+				A17037A01CE428340079EB08 /* ServiceTimeTracker */,
+				A170379F1CE428340079EB08 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A170379F1CE428340079EB08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A170379E1CE428340079EB08 /* ServiceTimeTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A17037A01CE428340079EB08 /* ServiceTimeTracker */ = {
+			isa = PBXGroup;
+			children = (
+				A1D73EA11CEC07B00065C337 /* Settings.bundle */,
+				A17037BE1CE42B740079EB08 /* Model */,
+				A17037A11CE428340079EB08 /* AppDelegate.swift */,
+				A12410501CE6A68500AD9EBD /* DateFunctions.swift */,
+				A17037A31CE428340079EB08 /* ViewController.swift */,
+				A19B25471CE5853300F08FC0 /* MomentTableView.swift */,
+				A17037A51CE428340079EB08 /* Main.storyboard */,
+				A17037AB1CE428340079EB08 /* Assets.xcassets */,
+				A17037AD1CE428340079EB08 /* LaunchScreen.storyboard */,
+				A17037B01CE428340079EB08 /* Info.plist */,
+				A17037A81CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld */,
+			);
+			path = ServiceTimeTracker;
+			sourceTree = "<group>";
+		};
+		A17037BE1CE42B740079EB08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A17037B71CE42B3D0079EB08 /* Session.swift */,
+				A17037B91CE42B3D0079EB08 /* Moment.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A170379D1CE428340079EB08 /* ServiceTimeTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A17037B31CE428340079EB08 /* Build configuration list for PBXNativeTarget "ServiceTimeTracker" */;
+			buildPhases = (
+				A170379A1CE428340079EB08 /* Sources */,
+				A170379B1CE428340079EB08 /* Frameworks */,
+				A170379C1CE428340079EB08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ServiceTimeTracker;
+			productName = ServiceTimeTracker;
+			productReference = A170379E1CE428340079EB08 /* ServiceTimeTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A17037961CE428340079EB08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Mark Long";
+				TargetAttributes = {
+					A170379D1CE428340079EB08 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A17037991CE428340079EB08 /* Build configuration list for PBXProject "ServiceTimeTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A17037951CE428340079EB08;
+			productRefGroup = A170379F1CE428340079EB08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A170379D1CE428340079EB08 /* ServiceTimeTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A170379C1CE428340079EB08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D73EA21CEC07B00065C337 /* Settings.bundle in Resources */,
+				A17037AF1CE428340079EB08 /* LaunchScreen.storyboard in Resources */,
+				A17037AC1CE428340079EB08 /* Assets.xcassets in Resources */,
+				A17037A71CE428340079EB08 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A170379A1CE428340079EB08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A17037BB1CE42B3D0079EB08 /* Session.swift in Sources */,
+				A17037BD1CE42B3D0079EB08 /* Moment.swift in Sources */,
+				A17037A41CE428340079EB08 /* ViewController.swift in Sources */,
+				A19B25481CE5853300F08FC0 /* MomentTableView.swift in Sources */,
+				A17037A21CE428340079EB08 /* AppDelegate.swift in Sources */,
+				A12410511CE6A68500AD9EBD /* DateFunctions.swift in Sources */,
+				A17037AA1CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A17037A51CE428340079EB08 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A17037A61CE428340079EB08 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A17037AD1CE428340079EB08 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A17037AE1CE428340079EB08 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A17037B11CE428340079EB08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A17037B21CE428340079EB08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A17037B41CE428340079EB08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ServiceTimeTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ml.ServiceTimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A17037B51CE428340079EB08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ServiceTimeTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ml.ServiceTimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A17037991CE428340079EB08 /* Build configuration list for PBXProject "ServiceTimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A17037B11CE428340079EB08 /* Debug */,
+				A17037B21CE428340079EB08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A17037B31CE428340079EB08 /* Build configuration list for PBXNativeTarget "ServiceTimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A17037B41CE428340079EB08 /* Debug */,
+				A17037B51CE428340079EB08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A17037A81CE428340079EB08 /* ServiceTimeTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A17037A91CE428340079EB08 /* ServiceTimeTracker.xcdatamodel */,
+			);
+			currentVersion = A17037A91CE428340079EB08 /* ServiceTimeTracker.xcdatamodel */;
+			path = ServiceTimeTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A17037961CE428340079EB08 /* Project object */;
+}
