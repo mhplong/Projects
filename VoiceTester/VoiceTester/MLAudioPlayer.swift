@@ -37,7 +37,7 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
         do
         {
             let audioSession = AVAudioSession.sharedInstance()
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setActive(true)
             
             recorder = try AVAudioRecorder(URL: recordURL, settings: recordingSettings)
@@ -64,11 +64,6 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
     
     func Stop() {
         let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(false)
-        } catch {
-            
-        }
         if recorder?.recording != nil {
             recorder?.stop()
             timer?.invalidate()
@@ -83,12 +78,10 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
         if player?.playing != nil {
             player?.stop()
         }
-        var minSample = Int16.max, maxSample = Int16.min
-        for sample in audioData {
-            minSample = min(sample, minSample)
-            maxSample = max(sample, maxSample)
+        do {
+            try audioSession.setActive(false)
+        } catch {
         }
-        print("\(minSample) : \(maxSample)")
     }
     
     func testingBufferSamples() {
