@@ -19,45 +19,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWD-Wf-DHi">
-                                <rect key="frame" x="186" y="396" width="228" height="108"/>
+                                <rect key="frame" x="186" y="453" width="228" height="122"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sI-xI-KAK">
-                                        <rect key="frame" x="20" y="58" width="90" height="30"/>
+                                        <rect key="frame" x="20" y="84" width="90" height="30"/>
                                         <state key="normal" title="Pause"/>
                                         <connections>
                                             <action selector="Pause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aaX-OV-Ebh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORt-yY-mIh">
-                                        <rect key="frame" x="118" y="20" width="90" height="30"/>
-                                        <state key="normal" title="Play"/>
-                                        <connections>
-                                            <action selector="Play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0db-FR-z2s"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngU-kl-viG">
-                                        <rect key="frame" x="20" y="20" width="90" height="30"/>
+                                        <rect key="frame" x="20" y="46" width="90" height="30"/>
                                         <state key="normal" title="Record"/>
                                         <connections>
                                             <action selector="Record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oOE-e1-xff"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWc-ih-v6d">
-                                        <rect key="frame" x="118" y="58" width="90" height="30"/>
+                                        <rect key="frame" x="118" y="84" width="90" height="30"/>
                                         <state key="normal" title="Stop"/>
                                         <connections>
                                             <action selector="Stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rmh-wY-RZi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORt-yY-mIh">
+                                        <rect key="frame" x="118" y="46" width="90" height="30"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="Play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0db-FR-z2s"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4X-79-mDM">
+                                        <rect key="frame" x="20" y="8" width="90" height="30"/>
+                                        <state key="normal" title="Previous"/>
+                                        <connections>
+                                            <action selector="Previous:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FOf-oR-Xmc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbO-A5-81e">
+                                        <rect key="frame" x="118" y="8" width="90" height="30"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="Next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xoa-pU-AOo"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.79627403846153844" green="0.79627403846153844" blue="0.79627403846153844" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="228" id="NA4-Bd-x5E"/>
-                                    <constraint firstAttribute="height" constant="108" id="cMZ-5w-Ade"/>
+                                    <constraint firstAttribute="height" constant="122" id="cMZ-5w-Ade"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRl-eg-ZwN" customClass="WaveFormView" customModule="VoiceTester" customModuleProvider="target">
-                                <rect key="frame" x="20" y="28" width="560" height="352"/>
+                                <rect key="frame" x="20" y="28" width="560" height="409"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -66,14 +80,22 @@
                             <constraint firstItem="bWD-Wf-DHi" firstAttribute="top" secondItem="kRl-eg-ZwN" secondAttribute="bottom" constant="16" id="FBu-ao-khi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kRl-eg-ZwN" secondAttribute="leading" id="HdB-MN-eSw"/>
                             <constraint firstItem="kRl-eg-ZwN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bIP-l3-6s3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bWD-Wf-DHi" secondAttribute="bottom" constant="25" id="daq-mr-POl"/>
                             <constraint firstItem="kRl-eg-ZwN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="h0R-As-A1O"/>
                             <constraint firstItem="bWD-Wf-DHi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qEN-sZ-UIn"/>
                             <constraint firstItem="bWD-Wf-DHi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="150" id="vfu-b9-aBl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vfu-b9-aBl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="nextBtn" destination="IbO-A5-81e" id="rHX-S1-juv"/>
                         <outlet property="pauseBtn" destination="7sI-xI-KAK" id="yDS-Wj-L69"/>
                         <outlet property="playBtn" destination="ORt-yY-mIh" id="aVW-jA-NOt"/>
+                        <outlet property="previousBtn" destination="c4X-79-mDM" id="azC-E2-mZD"/>
                         <outlet property="recordBtn" destination="ngU-kl-viG" id="ySa-RB-OOV"/>
                         <outlet property="stopBtn" destination="zWc-ih-v6d" id="gXb-Wt-FD1"/>
                         <outlet property="waveView" destination="kRl-eg-ZwN" id="Stq-Uq-B9I"/>

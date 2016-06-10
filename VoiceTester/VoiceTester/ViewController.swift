@@ -14,6 +14,8 @@ class ViewController: UIViewController, MLAudioPlayerDelegate {
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var pauseBtn: UIButton!
     @IBOutlet weak var stopBtn: UIButton!
+    @IBOutlet weak var previousBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
     @IBOutlet weak var waveView: WaveFormView!
     
@@ -39,15 +41,31 @@ class ViewController: UIViewController, MLAudioPlayerDelegate {
         ChangeToStopState()
     }
     
-    func RecordingEnded(data: [Int16]) {
+    func RecordingEnded(data: [[Int16]]?) {
         waveView.updateWaveForm(data)
     }
 
+    @IBAction func Previous(sender : UIButton) {
+        sender.enabled = waveView.Previous(1)
+        if !nextBtn.enabled {
+            nextBtn.enabled = true
+        }
+    }
+    
+    @IBAction func Next(sender: UIButton) {
+        sender.enabled = waveView.Next(1)
+        if !previousBtn.enabled {
+            previousBtn.enabled = true
+        }
+    }
+    
     @IBAction func Record(sender : UIButton) {
         player.Record()
         playBtn.enabled = false
         stopBtn.enabled = true
         recordBtn.enabled = false
+        previousBtn.enabled = false
+        nextBtn.enabled = false
     }
     
     @IBAction func Play(sender : UIButton) {
@@ -75,6 +93,8 @@ class ViewController: UIViewController, MLAudioPlayerDelegate {
         pauseBtn.enabled = false
         playBtn.enabled = true
         recordBtn.enabled = true
+        previousBtn.enabled = true
+        nextBtn.enabled = true
     }
 }
 

@@ -11,7 +11,7 @@ import AVFoundation
 
 protocol MLAudioPlayerDelegate : NSObjectProtocol {
     func AudioEnded()
-    func RecordingEnded(data: [Int16])
+    func RecordingEnded(data: [[Int16]]?)
 }
 
 class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
@@ -24,7 +24,7 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
     private var recordURL : NSURL!
     private var timer : NSTimer?
     
-    private var audioData = [Int16]()
+    private var audioData = [[Int16]]()
     
     weak var delegate: MLAudioPlayerDelegate?
     
@@ -95,7 +95,7 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
             testManager.startReading()
             //print(testManager.status)
             
-            audioData = [Int16]()
+            audioData.removeAll()
             
             var sample = trackOutput.copyNextSampleBuffer()
             while sample != nil {
@@ -115,13 +115,15 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
                 
                 let audioBuffers = UnsafeBufferPointer<AudioBuffer>(start: &bufferList.mBuffers, count: Int(bufferList.mNumberBuffers))
 
+                var sampleArray = [Int16]()
+                
                 for audioBuffer in audioBuffers {
                     
                     let samples = UnsafeMutableBufferPointer<Int16>(start: UnsafeMutablePointer(audioBuffer.mData),
                                                                     count: Int(audioBuffer.mDataByteSize)/sizeof(Int16))
-                    audioData.appendContentsOf(samples)
+                    sampleArray.appendContentsOf(samples)
                 }
-                
+                audioData.append(sampleArray)
                 
                 sample = trackOutput.copyNextSampleBuffer()
             }
@@ -133,6 +135,7 @@ class MLAudioPlayer: NSObject, AVAudioPlayerDelegate {
         recorder?.updateMeters()
         let power = recorder!.averagePowerForChannel(0) + 160.0
         print(power)
+        delegate?.RecordingEnded(nil)
     }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
