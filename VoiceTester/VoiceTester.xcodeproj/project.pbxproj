@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A16661DE1D04DE5D0033F2FC /* MLAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16661DD1D04DE5D0033F2FC /* MLAudioPlayer.swift */; };
+		A1C639271D0A404300CE263A /* WaveFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C639261D0A404300CE263A /* WaveFormView.swift */; };
 		A1F4F10A1CFF7D2300340A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F4F1091CFF7D2300340A20 /* AppDelegate.swift */; };
 		A1F4F10C1CFF7D2300340A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F4F10B1CFF7D2300340A20 /* ViewController.swift */; };
 		A1F4F10F1CFF7D2300340A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F4F10D1CFF7D2300340A20 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		A16661DD1D04DE5D0033F2FC /* MLAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAudioPlayer.swift; sourceTree = "<group>"; };
+		A1C639261D0A404300CE263A /* WaveFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaveFormView.swift; path = ../WaveFormView.swift; sourceTree = "<group>"; };
 		A1F4F1061CFF7D2300340A20 /* VoiceTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F4F1091CFF7D2300340A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1F4F10B1CFF7D2300340A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		A16661E01D04DE6F0033F2FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1C639261D0A404300CE263A /* WaveFormView.swift */,
 				A1F4F10D1CFF7D2300340A20 /* Main.storyboard */,
 				A1F4F10B1CFF7D2300340A20 /* ViewController.swift */,
 			);
@@ -169,6 +172,7 @@
 				A1F4F10C1CFF7D2300340A20 /* ViewController.swift in Sources */,
 				A16661DE1D04DE5D0033F2FC /* MLAudioPlayer.swift in Sources */,
 				A1F4F10A1CFF7D2300340A20 /* AppDelegate.swift in Sources */,
+				A1C639271D0A404300CE263A /* WaveFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

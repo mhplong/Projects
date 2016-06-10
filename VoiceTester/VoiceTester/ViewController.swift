@@ -8,14 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MLAudioPlayerDelegate {
+    
+    @IBOutlet weak var recordBtn: UIButton!
+    @IBOutlet weak var playBtn: UIButton!
+    @IBOutlet weak var pauseBtn: UIButton!
+    @IBOutlet weak var stopBtn: UIButton!
+    
+    @IBOutlet weak var waveView: WaveFormView!
     
     var player : MLAudioPlayer!
-    
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         player = MLAudioPlayer()
+        player.delegate = self
     }
     
     override func viewDidLoad() {
@@ -27,21 +34,47 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func AudioEnded() {
+        ChangeToStopState()
+    }
+    
+    func RecordingEnded(data: [Int16]) {
+        waveView.updateWaveForm(data)
+    }
 
     @IBAction func Record(sender : UIButton) {
         player.Record()
+        playBtn.enabled = false
+        stopBtn.enabled = true
+        recordBtn.enabled = false
     }
     
     @IBAction func Play(sender : UIButton) {
         player.Play()
+        playBtn.enabled = false
+        recordBtn.enabled = false
+        stopBtn.enabled = true
+        pauseBtn.enabled = true
     }
     
     @IBAction func Pause(sender : UIButton) {
         player.Pause()
+        pauseBtn.enabled = false
+        playBtn.enabled = true
+        stopBtn.enabled = false
     }
     
     @IBAction func Stop(sender : UIButton) {
         player.Stop()
+        ChangeToStopState()
+    }
+    
+    func ChangeToStopState() {
+        stopBtn.enabled = false
+        pauseBtn.enabled = false
+        playBtn.enabled = true
+        recordBtn.enabled = true
     }
 }
 
