@@ -42,45 +42,45 @@ class ViewController: UIViewController, MLAudioPlayerDelegate {
     }
     
     func RecordingEnded(data: [[Int16]]?) {
-        waveView.updateWaveForm(data)
+        waveView.updateWaveForm(data: data)
     }
 
     @IBAction func Previous(sender : UIButton) {
-        sender.enabled = waveView.Previous(1)
-        if !nextBtn.enabled {
-            nextBtn.enabled = true
+        sender.isEnabled = waveView.Previous(step: 1)
+        if !nextBtn.isEnabled {
+            nextBtn.isEnabled = true
         }
     }
     
     @IBAction func Next(sender: UIButton) {
-        sender.enabled = waveView.Next(1)
-        if !previousBtn.enabled {
-            previousBtn.enabled = true
+        sender.isEnabled = waveView.Next(step: 1)
+        if !previousBtn.isEnabled {
+            previousBtn.isEnabled = true
         }
     }
     
     @IBAction func Record(sender : UIButton) {
         player.Record()
-        playBtn.enabled = false
-        stopBtn.enabled = true
-        recordBtn.enabled = false
-        previousBtn.enabled = false
-        nextBtn.enabled = false
+        playBtn.isEnabled = false
+        stopBtn.isEnabled = true
+        recordBtn.isEnabled = false
+        previousBtn.isEnabled = false
+        nextBtn.isEnabled = false
     }
     
     @IBAction func Play(sender : UIButton) {
         player.Play()
-        playBtn.enabled = false
-        recordBtn.enabled = false
-        stopBtn.enabled = true
-        pauseBtn.enabled = true
+        playBtn.isEnabled = false
+        recordBtn.isEnabled = false
+        stopBtn.isEnabled = true
+        pauseBtn.isEnabled = true
     }
     
     @IBAction func Pause(sender : UIButton) {
         player.Pause()
-        pauseBtn.enabled = false
-        playBtn.enabled = true
-        stopBtn.enabled = false
+        pauseBtn.isEnabled = false
+        playBtn.isEnabled = true
+        stopBtn.isEnabled = false
     }
     
     @IBAction func Stop(sender : UIButton) {
@@ -89,12 +89,12 @@ class ViewController: UIViewController, MLAudioPlayerDelegate {
     }
     
     func ChangeToStopState() {
-        stopBtn.enabled = false
-        pauseBtn.enabled = false
-        playBtn.enabled = true
-        recordBtn.enabled = true
-        previousBtn.enabled = true
-        nextBtn.enabled = true
+        stopBtn.isEnabled = false
+        pauseBtn.isEnabled = false
+        playBtn.isEnabled = true
+        recordBtn.isEnabled = true
+        previousBtn.isEnabled = true
+        nextBtn.isEnabled = true
     }
 }
 

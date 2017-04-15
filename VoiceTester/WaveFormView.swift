@@ -17,7 +17,7 @@ func lerp(norm: CGFloat, max : CGFloat, min: CGFloat) -> CGFloat {
 }
 
 func map(value: CGFloat, maxTarget: CGFloat, minTarget: CGFloat, maxDest : CGFloat, minDest: CGFloat) -> CGFloat {
-    return lerp(normalize(value, max: maxTarget, min: minTarget), max: maxDest, min: minDest)
+    return lerp(norm: normalize(value: value, max: maxTarget, min: minTarget), max: maxDest, min: minDest)
 }
 
 class WaveFormView: UIView {
@@ -31,11 +31,11 @@ class WaveFormView: UIView {
     var stepOffset = 0
     let stepLength = 4
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
         let context = UIGraphicsGetCurrentContext()
-        CGContextClearRect(context, rect)
-        drawStuff(rect.size)
+        context?.clear(rect)
+        drawStuff(size: rect.size)
     }
     
     func drawStuff(size: CGSize) {
@@ -52,16 +52,16 @@ class WaveFormView: UIView {
         }
         print("\(minHeight) - \(maxHeight)")
         let baseline = CGFloat(size.height / 2)
-        var xPos = map(count, maxTarget: CGFloat(stepWaveFormData.count), minTarget: 0, maxDest: size.width, minDest: 0)
+        var xPos = map(value: count, maxTarget: CGFloat(stepWaveFormData.count), minTarget: 0, maxDest: size.width, minDest: 0)
         var lastPoint = CGPoint(x: xPos, y:baseline)
         for sample in stepWaveFormData {
             let path = UIBezierPath()
-            xPos = map(count, maxTarget: CGFloat(stepWaveFormData.count), minTarget: 0, maxDest: size.width, minDest: 0)
-            let offset = map(CGFloat(sample), maxTarget: CGFloat(Int16.max), minTarget: 0, maxDest: size.height, minDest: 0)
+            xPos = map(value: count, maxTarget: CGFloat(stepWaveFormData.count), minTarget: 0, maxDest: size.width, minDest: 0)
+            let offset = map(value: CGFloat(sample), maxTarget: CGFloat(Int16.max), minTarget: 0, maxDest: size.height, minDest: 0)
             let linePoint = CGPoint(x: xPos, y: (baseline + offset))
-            path.moveToPoint(lastPoint)
-            path.addLineToPoint(linePoint)
-            UIColor.yellowColor().setStroke()
+            path.move(to: lastPoint)
+            path.addLine(to: linePoint)
+            UIColor.yellow().setStroke()
             path.stroke()
             lastPoint = linePoint
             count = count + 1
@@ -82,7 +82,7 @@ class WaveFormView: UIView {
         let endStep = stepOffset + stepLength
         for c in stepOffset..<endStep {
             if c < wholeWaveFormData.count {
-                stepWaveFormData.appendContentsOf(wholeWaveFormData[c])
+                stepWaveFormData.append(contentsOf: wholeWaveFormData[c])
             }
         }
         self.setNeedsDisplay()

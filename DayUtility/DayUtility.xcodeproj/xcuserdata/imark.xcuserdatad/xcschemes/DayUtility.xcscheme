@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1F4F1051CFF7D2300340A20"
-               BuildableName = "VoiceTester.app"
-               BlueprintName = "VoiceTester"
-               ReferencedContainer = "container:VoiceTester.xcodeproj">
+               BlueprintIdentifier = "A1D4C2591EA2867100236107"
+               BuildableName = "DayUtility.app"
+               BlueprintName = "DayUtility"
+               ReferencedContainer = "container:DayUtility.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A1D4C26D1EA2867200236107"
+               BuildableName = "DayUtilityTests.xctest"
+               BlueprintName = "DayUtilityTests"
+               ReferencedContainer = "container:DayUtility.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A1D4C2781EA2867200236107"
+               BuildableName = "DayUtilityUITests.xctest"
+               BlueprintName = "DayUtilityUITests"
+               ReferencedContainer = "container:DayUtility.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1F4F1051CFF7D2300340A20"
-            BuildableName = "VoiceTester.app"
-            BlueprintName = "VoiceTester"
-            ReferencedContainer = "container:VoiceTester.xcodeproj">
+            BlueprintIdentifier = "A1D4C2591EA2867100236107"
+            BuildableName = "DayUtility.app"
+            BlueprintName = "DayUtility"
+            ReferencedContainer = "container:DayUtility.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1F4F1051CFF7D2300340A20"
-            BuildableName = "VoiceTester.app"
-            BlueprintName = "VoiceTester"
-            ReferencedContainer = "container:VoiceTester.xcodeproj">
+            BlueprintIdentifier = "A1D4C2591EA2867100236107"
+            BuildableName = "DayUtility.app"
+            BlueprintName = "DayUtility"
+            ReferencedContainer = "container:DayUtility.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1F4F1051CFF7D2300340A20"
-            BuildableName = "VoiceTester.app"
-            BlueprintName = "VoiceTester"
-            ReferencedContainer = "container:VoiceTester.xcodeproj">
+            BlueprintIdentifier = "A1D4C2591EA2867100236107"
+            BuildableName = "DayUtility.app"
+            BlueprintName = "DayUtility"
+            ReferencedContainer = "container:DayUtility.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
