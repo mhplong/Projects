@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Clothing" representedClassName="Clothing" syncable="YES" codeGenerationType="class">
+        <attribute name="durability" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastwashed" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastworn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="load" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Load" inverseName="clothings" inverseEntity="Load" syncable="YES"/>
+    </entity>
+    <entity name="Load" representedClassName="Load" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="clothings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Clothing" inverseName="load" inverseEntity="Clothing" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Clothing" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Load" positionX="-54" positionY="-9" width="128" height="75"/>
+    </elements>
 </model>

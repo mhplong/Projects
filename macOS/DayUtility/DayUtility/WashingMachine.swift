@@ -10,4 +10,11 @@ import Cocoa
 
 class WashingMachine: NSObject {
     
+    func wash(_ load : Load) -> Load {
+        for cloth : Clothing in load.clothings?.allObjects as! [Clothing] {
+            cloth.lastworn = NSDate()
+        }
+        return load
+    }
+    
 }

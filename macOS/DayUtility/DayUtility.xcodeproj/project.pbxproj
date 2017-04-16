@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1C8CE5A1EA3C03D001F401D /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8CE591EA3C03D001F401D /* Clothing.swift */; };
 		A1D4C29E1EA323ED00236107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C29D1EA323ED00236107 /* AppDelegate.swift */; };
 		A1D4C2A01EA323ED00236107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C29F1EA323ED00236107 /* ViewController.swift */; };
 		A1D4C2A31EA323ED00236107 /* DayUtility.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C2A11EA323ED00236107 /* DayUtility.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1C8CE591EA3C03D001F401D /* Clothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Clothing.swift; path = Model/Clothing.swift; sourceTree = "<group>"; };
 		A1D4C29A1EA323ED00236107 /* DayUtility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayUtility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D4C29D1EA323ED00236107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1D4C29F1EA323ED00236107 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1C8CE581EA3C01F001F401D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1C8CE591EA3C03D001F401D /* Clothing.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		A1D4C2911EA323ED00236107 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		A1D4C29C1EA323ED00236107 /* DayUtility */ = {
 			isa = PBXGroup;
 			children = (
+				A1C8CE581EA3C01F001F401D /* Model */,
 				A1D4C29D1EA323ED00236107 /* AppDelegate.swift */,
 				A1D4C29F1EA323ED00236107 /* ViewController.swift */,
 				A1D4C2A41EA323ED00236107 /* Assets.xcassets */,
@@ -269,6 +280,7 @@
 			files = (
 				A1D4C2A31EA323ED00236107 /* DayUtility.xcdatamodeld in Sources */,
 				A1D4C2CE1EA3279300236107 /* WashingMachine.swift in Sources */,
+				A1C8CE5A1EA3C03D001F401D /* Clothing.swift in Sources */,
 				A1D4C2A01EA323ED00236107 /* ViewController.swift in Sources */,
 				A1D4C29E1EA323ED00236107 /* AppDelegate.swift in Sources */,
 			);
@@ -523,6 +535,7 @@
 				A1D4C2C41EA323EF00236107 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1D4C2C51EA323EF00236107 /* Build configuration list for PBXNativeTarget "DayUtilityTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +544,7 @@
 				A1D4C2C71EA323EF00236107 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1D4C2C81EA323EF00236107 /* Build configuration list for PBXNativeTarget "DayUtilityUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +553,7 @@
 				A1D4C2CA1EA323EF00236107 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
