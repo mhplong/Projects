@@ -14,6 +14,8 @@
 		A1D4C2A81EA323EE00236107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D4C2A61EA323EE00236107 /* Main.storyboard */; };
 		A1D4C2B31EA323EE00236107 /* DayUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C2B21EA323EE00236107 /* DayUtilityTests.swift */; };
 		A1D4C2BE1EA323EF00236107 /* DayUtilityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C2BD1EA323EF00236107 /* DayUtilityUITests.swift */; };
+		A1D4C2CE1EA3279300236107 /* WashingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C2CD1EA3279300236107 /* WashingMachine.swift */; };
+		A1D4C2D01EA327B700236107 /* WashingMachine_should.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D4C2CF1EA327B700236107 /* WashingMachine_should.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		A1D4C2B91EA323EF00236107 /* DayUtilityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayUtilityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D4C2BD1EA323EF00236107 /* DayUtilityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayUtilityUITests.swift; sourceTree = "<group>"; };
 		A1D4C2BF1EA323EF00236107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1D4C2CD1EA3279300236107 /* WashingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WashingMachine.swift; sourceTree = "<group>"; };
+		A1D4C2CF1EA327B700236107 /* WashingMachine_should.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WashingMachine_should.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				A1D4C2A61EA323EE00236107 /* Main.storyboard */,
 				A1D4C2A91EA323EE00236107 /* Info.plist */,
 				A1D4C2A11EA323ED00236107 /* DayUtility.xcdatamodeld */,
+				A1D4C2CD1EA3279300236107 /* WashingMachine.swift */,
 			);
 			path = DayUtility;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				A1D4C2B21EA323EE00236107 /* DayUtilityTests.swift */,
 				A1D4C2B41EA323EE00236107 /* Info.plist */,
+				A1D4C2CF1EA327B700236107 /* WashingMachine_should.swift */,
 			);
 			path = DayUtilityTests;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1D4C2A31EA323ED00236107 /* DayUtility.xcdatamodeld in Sources */,
+				A1D4C2CE1EA3279300236107 /* WashingMachine.swift in Sources */,
 				A1D4C2A01EA323ED00236107 /* ViewController.swift in Sources */,
 				A1D4C29E1EA323ED00236107 /* AppDelegate.swift in Sources */,
 			);
@@ -271,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D4C2D01EA327B700236107 /* WashingMachine_should.swift in Sources */,
 				A1D4C2B31EA323EE00236107 /* DayUtilityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
