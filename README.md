@@ -1,3 +1,3 @@
 # Projects
 
-Projects of various sorts.
+Projects of various sorts and website to match.
