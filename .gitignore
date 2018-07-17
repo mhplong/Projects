@@ -1,2 +1,9 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Xcode Files
 *.xcworkspace/
 xcuserdata/
+
+# System Files
+.DS_Store
+Thumbs.db
