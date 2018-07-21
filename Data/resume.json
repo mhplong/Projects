@@ -1,0 +1,113 @@
+{
+   "basics":{
+      "name":"Mark Long",
+      "label":"Software Engineer",
+      "picture":"",
+      "email":"mhplong@gmail.com",
+      "phone":"(205) 529-0020",
+      "website":"mhplong.github.io",
+      "summary":"A programmer from Birmingham, looking for new positions",
+      "location":{
+         "address":"1065 Old Mill Run",
+         "postalCode":"AL 35094",
+         "city":"Leeds",
+         "countryCode":"US",
+         "region":"Alabama"
+      },
+      "profiles":[
+         {
+            "network":"LinkedIn",
+            "username":"mhplong",
+            "url":"http://linkedin.com/profiles/mhplong"
+         }
+      ]
+   },
+   "work":[
+      {
+         "company":"Company",
+         "position":"Programmer",
+         "website":"http://company.com",
+         "startDate":"2018-7-20",
+         "endDate":"2018-7-20",
+         "summary":"Description...",
+         "highlights":[
+            "Started the company"
+         ]
+      }
+   ],
+   "volunteer":[
+      {
+         "organization":"Organization",
+         "position":"Volunteer",
+         "website":"http://organization.com/",
+         "startDate":"2012-01-01",
+         "endDate":"2013-01-01",
+         "summary":"Description...",
+         "highlights":[
+            "Awarded 'Volunteer of the Month'"
+         ]
+      }
+   ],
+   "education":[
+      {
+         "institution":"University",
+         "area":"Software Development",
+         "studyType":"Bachelor",
+         "startDate":"2011-01-01",
+         "endDate":"2013-01-01",
+         "gpa":"4.0",
+         "courses":[
+            "DB1101 - Basic SQL"
+         ]
+      }
+   ],
+   "awards":[
+      {
+         "title":"Award",
+         "date":"2014-11-01",
+         "awarder":"Company",
+         "summary":"There is no spoon."
+      }
+   ],
+   "publications":[
+      {
+         "name":"Publication",
+         "publisher":"Company",
+         "releaseDate":"2014-10-01",
+         "website":"http://publication.com",
+         "summary":"Description..."
+      }
+   ],
+   "skills":[
+      {
+         "name":"Web Development",
+         "level":"Master",
+         "keywords":[
+            "HTML",
+            "CSS",
+            "Javascript"
+         ]
+      }
+   ],
+   "languages":[
+      {
+         "name":"English",
+         "level":"Native speaker"
+      }
+   ],
+   "interests":[
+      {
+         "name":"Wildlife",
+         "keywords":[
+            "Ferrets",
+            "Unicorns"
+         ]
+      }
+   ],
+   "references":[
+      {
+         "name":"Jane Doe",
+         "reference":"Reference..."
+      }
+   ]
+}
