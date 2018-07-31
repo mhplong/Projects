@@ -24,14 +24,14 @@
    },
    "work":[
       {
-         "company":"Company",
-         "position":"Programmer",
+         "company":"AtlasRFID",
+         "position":"Software Engineer",
          "website":"http://company.com",
-         "startDate":"2018-7-20",
-         "endDate":"2018-7-20",
+         "startDate":"2017-4-14",
+         "endDate":"2018-6-29",
          "summary":"Description...",
          "highlights":[
-            "Started the company"
+            "Agile Development"
          ]
       }
    ],
@@ -50,12 +50,12 @@
    ],
    "education":[
       {
-         "institution":"University",
-         "area":"Software Development",
+         "institution":"University Of Alabama, Birmingham",
+         "area":"Computer Science",
          "studyType":"Bachelor",
-         "startDate":"2011-01-01",
-         "endDate":"2013-01-01",
-         "gpa":"4.0",
+         "startDate":"2004-08-01",
+         "endDate":"2009-012-31",
+         "gpa":"3.0",
          "courses":[
             "DB1101 - Basic SQL"
          ]
@@ -63,21 +63,13 @@
    ],
    "awards":[
       {
-         "title":"Award",
+         "title":"Product Owner Certificate",
          "date":"2014-11-01",
          "awarder":"Company",
-         "summary":"There is no spoon."
+         "summary":"Product Ownership training"
       }
    ],
-   "publications":[
-      {
-         "name":"Publication",
-         "publisher":"Company",
-         "releaseDate":"2014-10-01",
-         "website":"http://publication.com",
-         "summary":"Description..."
-      }
-   ],
+   "publications":[],
    "skills":[
       {
          "name":"Web Development",
@@ -93,21 +85,21 @@
       {
          "name":"English",
          "level":"Native speaker"
+      },
+      {
+         "name":"Spanish",
+         "level":"Basic"
       }
    ],
    "interests":[
       {
-         "name":"Wildlife",
+         "name":"Psyhology",
          "keywords":[
-            "Ferrets",
-            "Unicorns"
+            "Counseling",
+            "Conflict Resulution",
+            "Coping Skills"
          ]
       }
    ],
-   "references":[
-      {
-         "name":"Jane Doe",
-         "reference":"Reference..."
-      }
-   ]
+   "references":[]
 }
