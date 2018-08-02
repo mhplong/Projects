@@ -1,4 +1,4 @@
 nav a {
-    float: left;
+    display: inline;
     padding: 10px;
 }
