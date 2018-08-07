@@ -1,13 +1,24 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RadarComponent } from './radar/radar.component';
+import { JournalComponent } from './journal/journal.component';
+import { ResumeComponent } from './resume/resume.component';
+import { APP_BASE_HREF } from '../../node_modules/@angular/common';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
+        RadarComponent,
+        JournalComponent,
+        ResumeComponent,
         NavigationComponent
       ],
+      imports: [AppRoutingModule],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     }).compileComponents();
   }));
 
