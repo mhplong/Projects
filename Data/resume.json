@@ -26,13 +26,33 @@
       {
          "company":"AtlasRFID",
          "position":"Software Engineer",
-         "website":"http://company.com",
+         "website":"http://www.atlasrfid.com",
          "startDate":"2017-4-14",
          "endDate":"2018-6-29",
-         "summary":"Description...",
+         "summary":"Developed mobile and application projects with a high reliance on Agile",
          "highlights":[
-            "Agile Development"
+            "Followed Agile principles and practices and contributed to refinements and pointing on software projects in a scrum team.",
+            "Improved my skills in unit testing, Agile, and Angular programming.",
+            "Created screens and interfaces for an Angular based mobile application using Typescript, SCSS, and HTML that was used on construction projects to track, monitor and trace RFID and barcode tagged materials throughout a multi step process from receiving to issuing the materials.",
+            "Added functionality to a REST api using C# and ASP.NET to help the company become a platform for outside clients.",
+            "Learned to adapt to change through the use of the Agile principles to work with changing circumstances and demands",
+            "Contributed to maintaining the main legacy Silverlight program using previous experience working with WPF."
          ]
+      },
+      {
+          "company":"SuccessEHS",
+          "position":"Software Engineer",
+          "website":"https://www.greenwayhealth.com/success-ehs",
+          "startDate":"2011-8-1",
+          "endDate": "2014-1-9",
+          "summary": "Developed for application projects involving health care",
+          "highlights": [
+            "Used combination of Agile and Waterfall principles to develop infrastructure for a medical records program.",
+            "Developed code using C# and WPF intended to follow strict governmental and insurance requirements to insure software was compliant with the medical rules.",
+            "Maintained software by working with clients to ensure a stable software product.",
+            "Researched and implemented the ground work for converting a dental program to the Unity framework.",
+            "Used my knowledge of iOS to respond and research issues with the syncing the mobile dictation app with the main software platform."
+          ]
       }
    ],
    "volunteer":[
@@ -72,13 +92,60 @@
    "publications":[],
    "skills":[
       {
+        "name": "Agile",
+        "level": "Intermediate",
+        "keywords": [
+            "Agile",
+            "Refinements",
+            "Standup",
+            "Retrospective",
+            "Scrum",
+            "Kanban",
+            "Scrum Master",
+            "Product Owner",
+            "Scrumban"
+        ]
+      },
+      {
          "name":"Web Development",
-         "level":"Master",
+         "level":"Intermediate",
          "keywords":[
+            "Angular",
             "HTML",
             "CSS",
-            "Javascript"
+            "Javascript",
+            "Typescript"
          ]
+      },
+      {
+          "name": "Application Development",
+          "level": "Master",
+          "keywords":[
+              "C#",
+              "Java",
+              "WPF",
+              "Silverlight"
+         ]
+      },
+      {
+          "name": "Database Development",
+          "level": "Master",
+          "keywords": [
+              "Oracle",
+              "SQL Server",
+              "PL/SQL",
+              "SQL"
+          ]
+      },
+      {
+          "name": "Mobile Development",
+          "level": "Intermediate",
+          "keywords": [
+              "Swift",
+              "Angular",
+              "iOS",
+              "Android"
+          ]
       }
    ],
    "languages":[
