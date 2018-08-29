@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as json from './resume.json';
 
 @Component({
   selector: 'app-resume',
@@ -9,13 +10,10 @@ export class ResumeComponent implements OnInit {
 
   constructor() { }
 
-  public items = [
-    "Mark Long",
-    "1065 Old Mill Run",
-    "Leeds, AL 35094"
-  ]
+  public data
 
   ngOnInit() {
+    this.data = json;
   }
 
 }
