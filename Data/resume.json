@@ -57,15 +57,35 @@
    ],
    "volunteer":[
       {
-         "organization":"Organization",
+         "organization":"Unitarian Universal Church of Birmingham",
          "position":"Volunteer",
-         "website":"http://organization.com/",
-         "startDate":"2012-01-01",
-         "endDate":"2013-01-01",
-         "summary":"Description...",
+         "website":"http://www.uucbham.org",
+         "startDate":"2014-1-1",
+         "summary":"Member of the Tech Committee, meeting once a month to discuss various technical concerns with the church.",
          "highlights":[
-            "Awarded 'Volunteer of the Month'"
+            "Enter check ammounts in the Excel spreadsheet",
+            "Assist with technical support and sound system",
+            "Record sound for documentary about the church",
+            "Assist with church events of setting up projection screens and other duties as needed"
          ]
+      }, {
+          "organization":"Healing Words",
+          "position":"Volunteer",
+          "startDate":"2009-1-1",
+          "endDate":"2009-5-31",
+          "summary":"Read stories and talked to people in nursing homes"
+      }, {
+          "organization":"Southern Museum of Flight",
+          "position":"Volunteer",
+          "startDate":"2005-1-1",
+          "endDate":"2006-1-1",
+          "summary":"Helped to move and clean aircraft parts for future displays"
+      }, {
+          "organization":"Into the Streets",
+          "position":"Volunteer",
+          "startDate":"2004-1-1",
+          "endDate":"2006-1-1",
+          "summary":"Helped with various projects including cleaning up a river and a wildlife center"
       }
    ],
    "education":[
