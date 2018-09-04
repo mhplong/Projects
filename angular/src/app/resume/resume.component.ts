@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as json from './resume.json';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resume',
@@ -8,12 +9,21 @@ import * as json from './resume.json';
 })
 export class ResumeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    
+  }
 
   public data
 
+  public getJSON(): Observable<any> {
+    return this.http.get("/resume.json");
+  }
+
   ngOnInit() {
-    this.data = json;
+    this.getJSON().subscribe(data => {
+      console.log(data);
+      this.data = data;
+    }, error => { console.log(error); });
   }
 
 }

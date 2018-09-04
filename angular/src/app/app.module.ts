@@ -7,6 +7,7 @@ import { RadarComponent } from './radar/radar.component';
 import { JournalComponent } from './journal/journal.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ResumeComponent } from './resume/resume.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ResumeComponent } from './resume/resume.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
