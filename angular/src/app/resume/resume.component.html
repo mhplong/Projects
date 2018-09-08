@@ -1,3 +1,20 @@
-<p *ngFor="let item of items">
-  {{item}}
-</p>
+<div *ngIf="!!resume">
+  <p>
+    {{resume.basics.name}}
+  </p>
+  <p>
+    {{resume.basics.label}}
+  </p>
+  <p>
+    {{resume.basics.phone}}
+  </p>
+  <p *ngFor="let vol of resume.work">
+    {{vol.company}}
+    {{vol.position}}
+  </p>
+  <p *ngFor="let vol of resume.volunteer">
+    {{vol.organization}}
+    {{vol.position}}
+  </p>
+</div>
+  
