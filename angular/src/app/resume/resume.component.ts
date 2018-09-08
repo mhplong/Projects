@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResumeFormat } from './resume-format';
+import { ResumeBasics } from './resume-parts';
 
 @Component({
   selector: 'app-resume',
@@ -11,6 +12,7 @@ import { ResumeFormat } from './resume-format';
 export class ResumeComponent implements OnInit {
 
   public resume: ResumeFormat;
+  public basics: ResumeBasics;
 
   constructor(private http: HttpClient) {
   }
@@ -18,6 +20,7 @@ export class ResumeComponent implements OnInit {
   ngOnInit(): void {
     this.getJSON().subscribe(data => {
       this.resume = data;
+      this.basics = this.resume.basics;
     });
   }
 

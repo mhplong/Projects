@@ -1,20 +1,38 @@
 <div *ngIf="!!resume">
-  <p>
-    {{resume.basics.name}}
-  </p>
-  <p>
-    {{resume.basics.label}}
-  </p>
-  <p>
-    {{resume.basics.phone}}
-  </p>
-  <p *ngFor="let vol of resume.work">
+  <div id="resume-basics">
+    <p>
+      {{ basics.name }} | {{basics.label}}
+    </p>
+    <p>
+      {{ basics.email }} | {{ basics.phone }}
+    </p>
+    <p>
+      {{ basics.website }}
+    </p>
+    <p>
+      {{ basics.summary }}
+    </p>
+  </div>
+  <div *ngFor="let vol of resume.work">
     {{vol.company}}
     {{vol.position}}
-  </p>
-  <p *ngFor="let vol of resume.volunteer">
+  </div>
+  <div *ngFor="let vol of resume.volunteer">
     {{vol.organization}}
     {{vol.position}}
-  </p>
+  </div>
+  <div *ngFor="let ed of resume.education">
+    {{ ed.institution }}
+    {{ ed.area }}
+    {{ ed.endDate }}
+  </div>
+  <div id= "skills" *ngFor="let skill of resume.skills">
+    {{ skill.name }} - {{ skill.level }}
+    <uL>
+      <li *ngFor="let keyword of skill.keywords">
+        {{ keyword }}
+      </li>
+    </uL>
+  </div>
 </div>
   
