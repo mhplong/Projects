@@ -25,7 +25,7 @@ export class ResumeComponent implements OnInit {
   }
 
   public getJSON(): Observable<ResumeFormat> {
-    return this.http.get<ResumeFormat>('/assets/resume.json');
+    return this.http.get<ResumeFormat>('http://mhplong.github.io/Projects/angular/assets/resume.json');
   }
 
 }
