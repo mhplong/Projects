@@ -1,0 +1,21 @@
+#basic-info {
+    padding: 5px;
+    text-align: center;
+    border: whitesmoke 5px ridge;
+}
+
+#summary {
+    text-align: justify;
+}
+
+#work {
+    padding: 5px;
+}
+
+#skills {
+    margin: 10px;
+}
+
+#skills ul {
+    margin: 10px;
+}
