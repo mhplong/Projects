@@ -1,45 +1,4 @@
-body {
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: inherit;
-}
-
-.page {
-  width: 700px;
-  margin: 0 auto;
-  padding: 5px;
-  overflow: hidden;
-}
-
-aside {
-  height: 200px;
-  float: left;
-  width: 30%;
-  padding: 10px;
-}
-
-main {
-  float: left;
-  width: 66%;
-  height: 400px;
-  padding: 10px;
-}
-
-header {
-  font-size: 4em;
-  padding: inherit;
-  text-align: center;
-  font-weight: bold;
-}
-
-footer {
-  font-style: italic;
-}
-
-
-
-aside a {
-  display:block;
+.jumbotron {
+  margin: 0;
+  border-radius: 0;
 }

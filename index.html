@@ -1,41 +1,84 @@
 <html ng-app="myApp">
-  <head>
-    <title>Project Site</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-  </head>
-  <body ng-controller="myController">
-    <div class="page">
-      <header>
-        Projects
-      </header>
-      <aside>
-        <center>
-          <h1><u>Code Navigation</u></h1>
-          <a href="https://github.com/mhplong/Projects/tree/master/iOS/ServiceTracker">Service Tracker</a>
-          <a href="https://github.com/mhplong/Projects/tree/master/iOS/VoiceTester">Voice Tester</a>
-          <a href="https://github.com/mhplong/Projects/tree/master/macOS/DayUtility/">Day Utility</a>
-          <a href="https://github.com/mhplong/Projects/tree/master/angular">Angular</a>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Project Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="jumbotron">
+    <h1>Projects</h1>
+    <p class="lead">This is where I show my projects repositories and other things.</p>
+  </div>
+  <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#items">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="items">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="http://mhplong.github.io/">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="http://mhplong.github.io/Projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://mhplong.github.io/about.html">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 bg-light">
+        <h1>Code Navigation</h1>
+        <nav class="nav flex-column">
+          <a class="nav-link" href="https://github.com/mhplong/Projects/tree/master/iOS/ServiceTracker">Service
+            Tracker</a>
+          <a class="nav-link" href="https://github.com/mhplong/Projects/tree/master/iOS/ServiceTracker">Service
+            Tracker</a>
+          <a class="nav-link" href="https://github.com/mhplong/Projects/tree/master/iOS/VoiceTester">Voice Tester</a>
+          <a class="nav-link" href="https://github.com/mhplong/Projects/tree/master/macOS/DayUtility/">Day Utility</a>
+          <a class="nav-link" href="https://github.com/mhplong/Projects/tree/master/angular">Angular</a>
           <hr />
           <h1><i>Site Navigation</i></h1>
-          <a href="http://mhplong.github.io/Projects/angular/">Angular App !!</a>
-        </center>
-      </aside>
-      <main>
-        <h2>I am working on understanding how to use Angular.js and CSS on this page.</h2>
-        The answer to the ultimate question using Angular.js: {{ six * seven  }}</br></br>
-        <script>
-        var app = angular.module('myApp', []);
-        app.controller('myController', function($scope) {
-          $scope.six = 6;
-          $scope.seven = 7;
-        });
-        </script>
-        <p>Check out the new Angular app, using Angular 4 to the left.</p><br /><br />
-        <footer>
-          Mark Long
-        </footer>
-      </main>
+          <a class="nav-link" href="http://mhplong.github.io/Projects/angular/">Angular App !!</a>
+        </nav>
+      </div>
+      <div class="col" ng-controller="myController">
+        <div class="page">
+          <h2>I am working on understanding how to use Angular.js and CSS on this page.</h2>
+          The answer to the ultimate question using Angular.js: {{ six * seven }}
+          <script>
+            var app = angular.module('myApp', []);
+            app.controller('myController', function ($scope) {
+              $scope.six = 6;
+              $scope.seven = 7;
+            });
+          </script>
+          <p>Check out the new Angular app, using Angular 4 to the left.</p>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+  <footer class="jumbotron text-center">
+    <div class="row">
+      <div class="col">Mark Long</div>
+      <div class="col">Contact: mhplong@gmail.com</div>
+    </div>
+  </footer>
+  </main>
+  </div>
+</body>
+
 </html>
