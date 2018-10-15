@@ -6,7 +6,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { AppRoutingModule } from './app-routing.module';
 
 describe('AppRoutingModule', () => {
-  let routingModule : AppRoutingModule;
+  let routingModule: AppRoutingModule;
 
   beforeEach(() => {
     routingModule = new AppRoutingModule();

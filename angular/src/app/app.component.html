@@ -1,11 +1,14 @@
+<div class="jumbotron">
+  <h1>{{ title }}</h1>
+  <p class="lead">This should have an infinite number of Angular components</p>
+</div>
+<app-navigation></app-navigation>
 <div id="main">
-  <div style="text-align:center">
-    <h1>
-      Welcome to the {{ title }}!
-    </h1>
-  </div>
-  <h2>Here are some links to help you start: </h2>
-  <app-navigation></app-navigation>
-  <hr />
   <router-outlet></router-outlet>
 </div>
+<footer class="jumbotron text-center">
+  <div class="row">
+    <div class="col">Mark Long</div>
+    <div class="col">Contact: mhplong@gmail.com</div>
+  </div>
+</footer>
