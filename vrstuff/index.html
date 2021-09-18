@@ -1,8 +1,25 @@
 <html>
     <head>
         <title>VR Stuff</title>
+        <script src="./dist/aframe.min.js"></script>
     </head>
-    <body>
-        Stuff 123
+    <body>    
+        <a-scene>
+            <a-assets>
+                <img id="skyTexture" src="./skybox.JPG">
+            </a-assets>
+
+            <a-sky src="#skyTexture"></a-sky>
+
+            <a-box color="#689F38" width="7"
+             height="3" depth="0.5"
+             position="0 1.5 -5"></a-box>
+
+            <a-plane color="brown" width="20" height="20" rotation="-90 0" position="0 0 0">
+            </a-plane>
+             
+             <a-entity text="value: VR Stuff" geometry="primitive: plane; width:1; height: 0.5;"
+                       position="0 2 -4.75" material="color:#689F38" ></a-entity>
+        </a-scene>
     </body>
 </html>
