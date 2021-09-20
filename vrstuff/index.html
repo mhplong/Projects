@@ -6,20 +6,27 @@
     <body>    
         <a-scene>
             <a-assets>
-                <img id="skyTexture" src="./skybox.JPG">
+                <img id="skyTexture" src="./images/skybox.JPG">
+                <img id="ground" src="./images/ground.jpg">
+                <img id="ground-normal" src="./images/ground-normal.jpg">
+                <img id="wall" src="./images/brick_diffuse.jpg">
+                <img id="wall-map" src="./images/brick_normal.jpg">
             </a-assets>
 
-            <a-sky src="#skyTexture"></a-sky>
+            <!-- <a-sky color="#AAFFFF" ></a-sky> -->
 
-            <a-box color="#689F38" width="7"
-             height="3" depth="0.5"
-             position="0 1.5 -5"></a-box>
+            <a-box material="src:#wall; repeat:2 2; roughness:0.5;
+                             normal-map:#wall-map; normal-texture-repeat:2 2; 
+                             normal-map-scale:1 -1"
+             width="5" height="3" depth="0.25" scale="1 1 1" position="0 1.5 -3">
+             <a-text text="value: VR Stuff; align:center; anchor:center"
+                     position="0 1 0.125" color="#AAFFFF" ></a-text>
+            </a-box>
 
-            <a-plane color="brown" width="10" height="10" rotation="-90 0" opacity="0.5" position="0 0 0">
+            <a-plane src="#ground" repeat="1.5 1.5"
+             normal-map="#ground-normal" normal-texture-repeat="1.5 1.5" normal-map-scale="1 -1"
+             roughness="0.5" width="5" height="5" rotation="-90 0" opacity="0.5" position="0 0 0">
             </a-plane>
-             
-             <a-entity text="value: VR Stuff" geometry="primitive: plane; width:7; height: auto;"
-                       position="0 2 -4.75" material="color:#689F38" ></a-entity>
         </a-scene>
     </body>
 </html>
