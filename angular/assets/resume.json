@@ -24,22 +24,6 @@
    },
    "work":[
       {
-         "company":"AtlasRFID",
-         "position":"Software Engineer",
-         "website":"http://www.atlasrfid.com",
-         "startDate":"2017-4-14",
-         "endDate":"2018-6-29",
-         "summary":"Developed mobile and application projects with a high reliance on Agile",
-         "highlights":[
-            "Followed Agile principles and practices and contributed to refinements and pointing on software projects in a scrum team.",
-            "Improved my skills in unit testing, Agile, and Angular programming.",
-            "Created screens and interfaces for an Angular based mobile application using Typescript, SCSS, and HTML that was used on construction projects to track, monitor and trace RFID and barcode tagged materials throughout a multi step process from receiving to issuing the materials.",
-            "Added functionality to a REST api using C# and ASP.NET to help the company become a platform for outside clients.",
-            "Learned to adapt to change through the use of the Agile principles to work with changing circumstances and demands",
-            "Contributed to maintaining the main legacy Silverlight program using previous experience working with WPF."
-         ]
-      },
-      {
           "company":"SuccessEHS",
           "position":"Software Engineer",
           "website":"https://www.greenwayhealth.com/success-ehs",
@@ -57,18 +41,6 @@
    ],
    "volunteer":[
       {
-         "organization":"Unitarian Universal Church of Birmingham",
-         "position":"Volunteer",
-         "website":"http://www.uucbham.org",
-         "startDate":"2014-1-1",
-         "summary":"Member of the Tech Committee, meeting once a month to discuss various technical concerns with the church.",
-         "highlights":[
-            "Enter check ammounts in the Excel spreadsheet",
-            "Assist with technical support and sound system",
-            "Record sound for documentary about the church",
-            "Assist with church events of setting up projection screens and other duties as needed"
-         ]
-      }, {
           "organization":"Healing Words",
           "position":"Volunteer",
           "startDate":"2009-1-1",
